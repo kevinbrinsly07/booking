@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useAuthStore } from '@/lib/auth-store';
@@ -13,10 +13,13 @@ interface RegisterFormData {
   password: string;
   confirmPassword: string;
   phone?: string;
+  role?: string;
 }
 
 export default function RegisterForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const roleParam = searchParams.get('role');
   const [isLoading, setIsLoading] = useState(false);
   const { setUser, setToken } = useAuthStore();
   const { register, handleSubmit, watch, formState: { errors } } = useForm<RegisterFormData>();
@@ -27,14 +30,27 @@ export default function RegisterForm() {
     setIsLoading(true);
     try {
       const { confirmPassword, ...registerData } = data;
-      const response = await api.post('/auth/register', registerData);
+      
+      // Add role based on URL parameter
+      const requestData = {
+        ...registerData,
+        role: roleParam === 'hotel' ? 'hotel_admin' : 'user'
+      };
+      
+      const response = await api.post('/auth/register', requestData);
       const { access_token, user } = response.data;
       
       setToken(access_token);
       setUser(user);
       
       toast.success('Registration successful!');
-      router.push('/client');
+      
+      // Redirect based on role
+      if (user.role === 'hotel_admin' || user.role === 'super_admin') {
+        router.push('/hotel');
+      } else {
+        router.push('/client');
+      }
     } catch (error: any) {
       toast.error(error.response?.data?.message || 'Registration failed');
     } finally {

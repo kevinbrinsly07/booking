@@ -14,7 +14,7 @@ export default function HotelPortal() {
 
   useEffect(() => {
     if (!user) {
-      router.push('/login')
+      router.push('/login?returnTo=hotel')
     } else if (user.role !== 'hotel_admin' && user.role !== 'super_admin') {
       router.push('/client')
     }

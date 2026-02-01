@@ -14,7 +14,7 @@ export default function ClientPortal() {
 
   useEffect(() => {
     if (!user) {
-      router.push("/login");
+      router.push("/login?returnTo=client");
     }
   }, [user, router]);
 

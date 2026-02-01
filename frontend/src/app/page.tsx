@@ -20,7 +20,7 @@ export default function Home() {
                 Login
               </Link>
               <Link 
-                href="/register" 
+                href="/register?role=client" 
                 className="btn-primary"
               >
                 Sign Up
@@ -95,10 +95,7 @@ export default function Home() {
 
         {/* Portal Selection Cards */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <Link 
-            href="/client"
-            className="card-elevated group hover:scale-105 transition-all duration-300 cursor-pointer"
-          >
+          <div className="card-elevated group hover:scale-105 transition-all duration-300">
             <div className="flex items-center justify-center mb-6">
               <div className="p-6 bg-neon-lime/10 rounded-2xl border border-neon-lime/30 group-hover:bg-neon-lime/20 transition-all">
                 <svg className="w-16 h-16 text-neon-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,21 +106,20 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-4 text-white group-hover:text-neon-lime transition-colors text-center">
               For Clients
             </h2>
-            <p className="text-white/70 text-center text-lg">
+            <p className="text-white/70 text-center text-lg mb-6">
               Browse available hotels, make bookings, and manage your reservations with ease
             </p>
-            <div className="mt-6 flex items-center justify-center text-neon-lime font-semibold">
-              <span>Explore Hotels</span>
-              <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+            <div className="flex flex-col gap-3">
+              <Link href="/client" className="btn-primary text-center">
+                Explore Hotels
+              </Link>
+              <Link href="/register?role=client" className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-xl border border-white/10 hover:border-neon-lime/50 transition-all font-semibold text-center">
+                Sign Up as Client
+              </Link>
             </div>
-          </Link>
+          </div>
 
-          <Link 
-            href="/hotel"
-            className="card-elevated group hover:scale-105 transition-all duration-300 cursor-pointer"
-          >
+          <div className="card-elevated group hover:scale-105 transition-all duration-300">
             <div className="flex items-center justify-center mb-6">
               <div className="p-6 bg-neon-lime/10 rounded-2xl border border-neon-lime/30 group-hover:bg-neon-lime/20 transition-all">
                 <svg className="w-16 h-16 text-neon-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,16 +130,18 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-4 text-white group-hover:text-neon-lime transition-colors text-center">
               For Hotels
             </h2>
-            <p className="text-white/70 text-center text-lg">
+            <p className="text-white/70 text-center text-lg mb-6">
               Manage your property, rooms, and bookings with our powerful dashboard
             </p>
-            <div className="mt-6 flex items-center justify-center text-neon-lime font-semibold">
-              <span>Go to Dashboard</span>
-              <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+            <div className="flex flex-col gap-3">
+              <Link href="/hotel" className="btn-primary text-center">
+                Go to Dashboard
+              </Link>
+              <Link href="/register?role=hotel" className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-xl border border-white/10 hover:border-neon-lime/50 transition-all font-semibold text-center">
+                Sign Up as Hotel
+              </Link>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
 

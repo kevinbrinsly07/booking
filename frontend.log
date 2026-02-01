@@ -105,3 +105,29 @@
  ✓ Compiled in 125ms (743 modules)
  ✓ Compiled in 468ms (757 modules)
  ✓ Compiled in 287ms (757 modules)
+ GET / 200 in 77ms
+ ✓ Compiled /register in 400ms (751 modules)
+ ✓ Compiled /client in 138ms (423 modules)
+ GET /login 200 in 94ms
+ ✓ Compiled in 944ms (762 modules)
+ ✓ Compiled in 208ms (762 modules)
+ ✓ Compiled in 162ms (762 modules)
+ ✓ Compiled in 641ms (762 modules)
+ GET /login 200 in 88ms
+ GET / 200 in 20ms
+ GET /login 200 in 17ms
+ ✓ Compiled /hotel in 245ms (419 modules)
+ ✓ Compiled in 478ms (769 modules)
+ ✓ Compiled in 171ms (762 modules)
+ GET /login 200 in 69ms
+ GET /login 200 in 18ms
+ GET / 200 in 18ms
+ ✓ Compiled /hotel in 72ms (419 modules)
+ ✓ Compiled in 480ms (762 modules)
+ ✓ Compiled in 319ms (762 modules)
+ GET /login 200 in 84ms
+ GET /login 200 in 18ms
+ GET /login 200 in 11ms
+ GET /login 200 in 10ms
+ GET / 200 in 47ms
+ ✓ Compiled /hotel in 129ms (419 modules)

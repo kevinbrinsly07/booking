@@ -1,13 +1,15 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuthStore } from '@/lib/auth-store';
 import LoginForm from '@/components/auth/LoginForm';
 import Link from 'next/link';
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const returnTo = searchParams.get('returnTo');
   const { user, isLoading } = useAuthStore();
 
   useEffect(() => {
@@ -49,7 +51,10 @@ export default function LoginPage() {
           <div className="mt-6 text-center">
             <p className="text-white/60 text-sm">
               Don't have an account?{' '}
-              <Link href="/register" className="text-neon-lime hover:underline font-semibold">
+              <Link 
+                href={`/register?role=${returnTo === 'hotel' ? 'hotel' : 'client'}`} 
+                className="text-neon-lime hover:underline font-semibold"
+              >
                 Sign up
               </Link>
             </p>
