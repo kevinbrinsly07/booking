@@ -1,0 +1,146 @@
+
+> hotel-booking-backend@1.0.0 start:dev
+> nest start --watch
+
+
+ Info  Webpack is building your sources...
+
+webpack 5.97.1 compiled [1m[32msuccessfully[39m[22m in 387 ms
+(node:96189) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Type-checking in progress...
+(node:96198) [MONGOOSE] Warning: Duplicate schema index on {"email":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:35 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:35 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +9ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:35 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:35 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:35 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:35 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:35 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mRedisModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:35 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:35 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:35 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +10ms[39m
+[ioredis] Unhandled error event: AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1139:18)
+    at afterConnectMultiple (node:net:1714:7)
+⚠️  Redis connection failed - app will run without caching
+[ioredis] Unhandled error event: AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1139:18)
+    at afterConnectMultiple (node:net:1714:7)
+[ioredis] Unhandled error event: AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1139:18)
+    at afterConnectMultiple (node:net:1714:7)
+[ioredis] Unhandled error event: AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1139:18)
+    at afterConnectMultiple (node:net:1714:7)
+⚠️  Redis not available - running without caching
+No errors found.
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseCoreModule dependencies initialized[39m[38;5;3m +1661ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +6ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHotelsModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mRoomsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBookingsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +19ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users, POST} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:userId/hotels/:hotelId, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:userId/hotels/:hotelId, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHotelsController {/api/hotels}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/search, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mRoomsController {/api/rooms}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/available, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBookingsController {/api/bookings}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id/confirm, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id/cancel, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id/complete, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/room/:roomId/availability, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 96198  - [39m02/01/2026, 11:26:37 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1ms[39m
+Application is running on: http://localhost:3001/api
+[31m[Nest] 96198  - [39m02/01/2026, 1:01:53 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39m[31mCast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Booking"[39m
+CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Booking"
+    at SchemaObjectId.cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async BookingsService.findOne (/Users/kevinbrinsly/booking/backend/dist/main.js:844:25)
+[31m[Nest] 96198  - [39m02/01/2026, 1:01:57 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39m[31mCast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Booking"[39m
+CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Booking"
+    at SchemaObjectId.cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async BookingsService.findOne (/Users/kevinbrinsly/booking/backend/dist/main.js:844:25)
+[31m[Nest] 96198  - [39m02/01/2026, 1:04:07 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39m[31mCast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Booking"[39m
+CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Booking"
+    at SchemaObjectId.cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async BookingsService.findOne (/Users/kevinbrinsly/booking/backend/dist/main.js:844:25)
+[31m[Nest] 96198  - [39m02/01/2026, 1:04:19 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39m[31mCast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Booking"[39m
+CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Booking"
+    at SchemaObjectId.cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async BookingsService.findOne (/Users/kevinbrinsly/booking/backend/dist/main.js:844:25)
+[31m[Nest] 96198  - [39m02/01/2026, 1:07:52 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39m[31mCast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Booking"[39m
+CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Booking"
+    at SchemaObjectId.cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/kevinbrinsly/booking/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async BookingsService.findOne (/Users/kevinbrinsly/booking/backend/dist/main.js:844:25)
