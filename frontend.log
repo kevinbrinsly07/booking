@@ -107,3 +107,10 @@
  ○ Compiling /client ...
  ✓ Compiled /client in 676ms (759 modules)
  ✓ Compiled /register in 448ms (767 modules)
+ ⚠ Found a change in next.config.js. Restarting the server to apply the changes...
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 2.3s
