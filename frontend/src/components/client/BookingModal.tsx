@@ -182,9 +182,9 @@ export default function BookingModal({ isOpen, onClose, hotel }: BookingModalPro
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <div className="bg-dark-purple/95 border border-white/10 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-dark-purple/95 border border-white/10 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] sm:max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-dark-purple/95 border-b border-white/10 px-6 py-4 flex items-center justify-between backdrop-blur-sm z-10">
+        <div className="sticky top-0 bg-dark-purple/95 border-b border-white/10 px-4 sm:px-6 py-4 flex items-center justify-between backdrop-blur-sm z-10">
           <div>
             <h2 className="text-2xl font-bold text-white">{hotel.name}</h2>
             <p className="text-white/60 text-sm mt-1">
@@ -230,7 +230,7 @@ export default function BookingModal({ isOpen, onClose, hotel }: BookingModalPro
         )}
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6">
           <div className="space-y-5">
             {/* Guest Information */}
             <div>

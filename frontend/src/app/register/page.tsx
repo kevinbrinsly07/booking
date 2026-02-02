@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuthStore } from '@/lib/auth-store';
 import RegisterForm from '@/components/auth/RegisterForm';
 import Link from 'next/link';
 
-export default function RegisterPage() {
+function RegisterContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const roleParam = searchParams.get('role');
@@ -25,7 +25,7 @@ export default function RegisterPage() {
   const isHotelRole = roleParam === 'hotel';
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-dark-purple px-4 py-12">
+    <div className="min-h-screen flex items-center justify-center bg-dark-purple px-4 py-8 sm:py-12">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-neon-lime/5 rounded-full blur-3xl" />
@@ -86,5 +86,17 @@ export default function RegisterPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-dark-purple">
+        <div className="text-white">Loading...</div>
+      </div>
+    }>
+      <RegisterContent />
+    </Suspense>
   );
 }

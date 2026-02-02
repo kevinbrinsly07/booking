@@ -21,6 +21,7 @@ export default function ClientPortal() {
   });
   const [featuredHotels, setFeaturedHotels] = useState<Hotel[]>([]);
   const [featuredHotelsLoading, setFeaturedHotelsLoading] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!user) {
@@ -75,7 +76,9 @@ export default function ClientPortal() {
               </svg>
               <h1 className="text-xl font-bold gradient-text">Client Portal</h1>
             </div>
-            <div className="flex items-center space-x-3">
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-3">
               <button
                 onClick={() => setActiveTab("search")}
                 className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 ${
@@ -144,11 +147,117 @@ export default function ClientPortal() {
                 </button>
               </div>
             </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center space-x-3">
+              <button
+                onClick={() => router.push("/profile")}
+                className="text-sm text-neon-lime hover:text-neon-lime/80 font-semibold flex items-center"
+              >
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+                <span className="hidden sm:inline">{user.name}</span>
+              </button>
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-white/70 hover:text-white p-2"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {isMobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden border-t border-white/10 bg-dark-purple/95 backdrop-blur-sm">
+              <div className="px-4 py-4 space-y-2">
+                <button
+                  onClick={() => {
+                    setActiveTab("search");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                    activeTab === "search"
+                      ? "bg-neon-lime text-dark-purple"
+                      : "text-white/70 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  Search Hotels
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab("bookings");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                    activeTab === "bookings"
+                      ? "bg-neon-lime text-dark-purple"
+                      : "text-white/70 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  My Bookings
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab("favorites");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                    activeTab === "favorites"
+                      ? "bg-neon-lime text-dark-purple"
+                      : "text-white/70 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  Favorites
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab("profile");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                    activeTab === "profile"
+                      ? "bg-neon-lime text-dark-purple"
+                      : "text-white/70 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  Profile
+                </button>
+                <div className="border-t border-white/10 pt-2 mt-4">
+                  <button
+                    onClick={() => {
+                      handleLogout();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="w-full text-left px-4 py-3 text-red-400 hover:bg-red-500/10 rounded-lg font-semibold transition-all duration-200"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         {activeTab === "search" ? (
           <div>
             <SearchForm onSearch={setSearchParams} />

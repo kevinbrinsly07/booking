@@ -34,6 +34,21 @@ body {
   .card-elevated {
     @apply bg-dark-300 border border-neon-lime/20 rounded-xl p-6 shadow-lg hover:shadow-neon-lime/10 transition-all duration-300;
   }
+
+  /* Mobile-specific improvements */
+  @media (max-width: 640px) {
+    .btn-primary, .btn-secondary {
+      @apply px-4 py-2 text-sm;
+    }
+    
+    .card, .card-elevated {
+      @apply p-4 rounded-lg;
+    }
+    
+    .input-field {
+      @apply px-3 py-2 text-base; /* Prevent zoom on iOS */
+    }
+  }
 }
 
 @layer utilities {
@@ -57,5 +72,31 @@ body {
 
   .bg-gradient-radial {
     background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
+  /* Mobile touch targets */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Mobile text improvements */
+  @media (max-width: 640px) {
+    .text-responsive {
+      @apply text-sm;
+    }
+    
+    .heading-responsive {
+      @apply text-xl;
+    }
+    
+    .subheading-responsive {
+      @apply text-lg;
+    }
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  .mobile-safe {
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }

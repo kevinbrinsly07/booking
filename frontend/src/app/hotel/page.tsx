@@ -11,6 +11,7 @@ export default function HotelPortal() {
   const router = useRouter()
   const { user, logout } = useAuthStore()
   const [activeTab, setActiveTab] = useState<'dashboard' | 'rooms' | 'bookings'>('dashboard')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     if (!user) {
@@ -82,10 +83,11 @@ export default function HotelPortal() {
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
-                  <div className="flex flex-col items-start">
+                  <div className="hidden sm:flex flex-col items-start">
                     <span>{user.name}</span>
                     <span className="text-xs text-white/50">({user.role})</span>
                   </div>
+                  <span className="sm:hidden">{user.name}</span>
                 </button>
                 <button
                   onClick={handleLogout}
@@ -95,11 +97,85 @@ export default function HotelPortal() {
                 </button>
               </div>
             </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-white/70 hover:text-white p-2"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {isMobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden border-t border-white/10 bg-dark-purple/95 backdrop-blur-sm">
+              <div className="px-4 py-4 space-y-2">
+                <button
+                  onClick={() => {
+                    setActiveTab('dashboard')
+                    setIsMobileMenuOpen(false)
+                  }}
+                  className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                    activeTab === 'dashboard'
+                      ? 'bg-neon-lime text-dark-purple'
+                      : 'text-white/70 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  Dashboard
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab('rooms')
+                    setIsMobileMenuOpen(false)
+                  }}
+                  className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                    activeTab === 'rooms'
+                      ? 'bg-neon-lime text-dark-purple'
+                      : 'text-white/70 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  Rooms
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab('bookings')
+                    setIsMobileMenuOpen(false)
+                  }}
+                  className={`w-full text-left px-4 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                    activeTab === 'bookings'
+                      ? 'bg-neon-lime text-dark-purple'
+                      : 'text-white/70 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  Bookings
+                </button>
+                <div className="border-t border-white/10 pt-2 mt-4">
+                  <button
+                    onClick={() => {
+                      handleLogout()
+                      setIsMobileMenuOpen(false)
+                    }}
+                    className="w-full text-left px-4 py-3 text-red-400 hover:bg-red-500/10 rounded-lg font-semibold transition-all duration-200"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         {activeTab === 'dashboard' && <HotelDashboard />}
         {activeTab === 'rooms' && <RoomManagement />}
         {activeTab === 'bookings' && <BookingManagement />}

@@ -46,7 +46,7 @@ export default function AdminDashboard() {
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="mb-8">
           <h2 className="text-4xl font-bold text-white mb-4 neon-glow">Welcome, {user.name}</h2>
           <p className="text-white/60 text-lg">Manage your hotel booking platform</p>
