@@ -137,7 +137,7 @@ export default function RoomManagement() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-col md:flex-row gap-3 justify-between items-center mb-6">
         <h2 className="text-3xl font-bold text-white neon-glow">Room Management</h2>
         <button
           onClick={() => setShowAddForm(!showAddForm)}

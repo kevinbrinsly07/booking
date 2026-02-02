@@ -44,7 +44,7 @@ export default function HotelPortal() {
               </svg>
               <h1 className="text-xl font-bold gradient-text">Hotel Management</h1>
             </div>
-            <div className="flex items-center space-x-3">
+            <div className="hidden md:flex items-center space-x-3">
               <button
                 onClick={() => setActiveTab('dashboard')}
                 className={`px-5 py-2 rounded-lg font-semibold transition-all duration-200 ${
@@ -98,8 +98,17 @@ export default function HotelPortal() {
               </div>
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
+            {/* Mobile menu button and user info */}
+            <div className="md:hidden flex items-center space-x-3">
+              <button
+                onClick={() => router.push('/profile')}
+                className="text-sm text-neon-lime hover:text-neon-lime/80 font-semibold flex items-center"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span className="hidden sm:inline">{user.name}</span>
+              </button>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-white/70 hover:text-white p-2"
@@ -159,6 +168,15 @@ export default function HotelPortal() {
                   Bookings
                 </button>
                 <div className="border-t border-white/10 pt-2 mt-4">
+                  <button
+                    onClick={() => {
+                      router.push('/profile')
+                      setIsMobileMenuOpen(false)
+                    }}
+                    className="w-full text-left px-4 py-3 text-neon-lime hover:bg-neon-lime/10 rounded-lg font-semibold transition-all duration-200"
+                  >
+                    Profile
+                  </button>
                   <button
                     onClick={() => {
                       handleLogout()

@@ -86,7 +86,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section with Full Image Carousel */}
-      <div className="relative h-screen flex items-center justify-center overflow-hidden">
+      <div className="relative md:h-screen flex items-center justify-center overflow-hidden">
         {/* Carousel Images */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
@@ -107,7 +107,7 @@ export default function Home() {
         </div>
 
         {/* Carousel Indicators */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+        <div className="absolute bottom-5 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
           {heroImages.map((_, index) => (
             <button
               key={index}
@@ -123,12 +123,12 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 neon-glow">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:mt-0 mt-[120px]">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 neon-glow">
             Welcome to
             <span className="block gradient-text mt-3 pb-3">Hotel Booking System</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-2xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed">
             Manage your hotel bookings efficiently with our comprehensive platform.
             Experience seamless booking management like never before.
           </p>
@@ -158,7 +158,7 @@ export default function Home() {
       </div>
 
       {/* Why Choose Us Section */}
-      <div className="py-40 relative">
+      <div className="py-10 lg:py-40 relative">
         <div className="absolute inset-0 opacity-50"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16 neon-glow">
@@ -203,7 +203,7 @@ export default function Home() {
       </div>
 
       {/* Portal Selection Cards */}
-      <div className="py-20">
+      <div className="py-10 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="card-elevated group hover:scale-105 transition-all duration-300 relative overflow-hidden">
@@ -274,7 +274,7 @@ export default function Home() {
       </div>
 
       {/* Stats Section */}
-      <div className="py-40 relative">
+      <div className="py-10 lg:py-40 relative">
         <div className="absolute inset-0 opacity-50"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid md:grid-cols-4 gap-8 text-center">
@@ -299,9 +299,9 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 mt-20 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <p className="text-center text-xs text-white/60">
+      <footer className="border-t border-white/10 mt-10 md:mt-20 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
+          <p className="text-center text-[8px] md:text-xs text-white/60">
             © 2026 Hotel Booking System. All rights reserved.
           </p>
         </div>
