@@ -116,7 +116,7 @@ export default function BookingManagement() {
         {bookings.length > 0 ? (
           bookings.map((booking) => {
             const room = rooms[String(booking.roomId)]
-            const bookingId = booking._id || booking.id
+            const bookingId = booking._id || booking.id || ''
             return (
               <div key={bookingId} className="card-elevated hover:scale-105 transition-all duration-300 overflow-hidden">
                 {/* Room Image */}
@@ -196,7 +196,7 @@ export default function BookingManagement() {
               {bookings.length > 0 ? (
                 bookings.map((booking) => {
                   const room = rooms[String(booking.roomId)]
-                  const bookingId = booking._id || booking.id
+                  const bookingId = booking._id || booking.id || ''
                   return (
                     <tr key={bookingId} className="hover:bg-white/5 transition-colors">
                       <td className="px-6 py-4 text-white font-medium">User #{String(booking.userId).slice(0, 8)}</td>

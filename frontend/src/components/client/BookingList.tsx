@@ -1,23 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { bookingService } from '@/lib/services'
+import { bookingService, Booking } from '@/lib/services'
 import { useAuthStore } from '@/lib/auth-store'
-
-interface Booking {
-  _id: string
-  hotelId: string
-  roomId: string
-  userId: string
-  guestName: string
-  guestEmail: string
-  checkIn: string
-  checkOut: string
-  guests: number
-  status: string
-  totalAmount: number
-  createdAt: string
-}
 
 export default function BookingList() {
   const { user } = useAuthStore()
@@ -65,8 +50,9 @@ export default function BookingList() {
     }
   }
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
+  const formatDate = (date: string | Date) => {
+    const dateObj = typeof date === 'string' ? new Date(date) : date
+    return dateObj.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
       day: 'numeric'
@@ -139,8 +125,8 @@ export default function BookingList() {
         </div>
       ) : (
         <div className="divide-y divide-white/10">
-          {bookings.map((booking) => (
-            <div key={booking._id} className="py-6 first:pt-6 hover:bg-white/5 -mx-6 px-6 transition-all duration-200">
+          {bookings.map((booking, index) => (
+            <div key={booking._id || booking.id || index} className="py-6 first:pt-6 hover:bg-white/5 -mx-6 px-6 transition-all duration-200">
               <div className="flex flex-col md:flex-row gap-6">
                 {/* Booking Icon */}
                 <div className="relative w-full md:w-48 h-40 rounded-lg overflow-hidden flex-shrink-0 bg-dark-200 flex items-center justify-center">
@@ -157,7 +143,7 @@ export default function BookingList() {
                   <div>
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-1">Booking #{booking._id.slice(-8)}</h3>
+                        <h3 className="text-xl font-bold text-white mb-1">Booking #{(booking._id || booking.id || 'Unknown').slice(-8)}</h3>
                         <p className="text-white/60 text-sm mb-2">
                           Guest: {booking.guestName}
                         </p>
@@ -173,7 +159,7 @@ export default function BookingList() {
                       </span>
                     </div>
                     <p className="text-white/60 text-xs">
-                      Booked on: {formatDate(booking.createdAt)}
+                      Booked on: {formatDate(booking.createdAt || new Date())}
                     </p>
                   </div>
                   
@@ -184,11 +170,11 @@ export default function BookingList() {
                     <div className="flex gap-3">
                       {booking.status.toLowerCase() !== 'cancelled' && booking.status.toLowerCase() !== 'completed' && (
                         <button 
-                          onClick={() => handleCancelBooking(booking._id)}
-                          disabled={cancelingId === booking._id}
+                          onClick={() => handleCancelBooking(booking._id || booking.id || '')}
+                          disabled={cancelingId === (booking._id || booking.id)}
                           className="px-6 py-3 bg-red-500/20 text-red-400 border border-red-500/30 rounded-lg font-semibold hover:bg-red-500/30 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                          {cancelingId === booking._id ? 'Canceling...' : 'Cancel Booking'}
+                          {cancelingId === (booking._id || booking.id) ? 'Canceling...' : 'Cancel Booking'}
                         </button>
                       )}
                     </div>

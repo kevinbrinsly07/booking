@@ -2,18 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import BookingModal from './BookingModal'
-import { hotelService } from '@/lib/services'
-
-interface Hotel {
-  _id: string
-  name: string
-  location: string
-  description: string
-  rating: number
-  amenities: string[]
-  images: string[]
-  isActive: boolean
-}
+import { hotelService, Hotel } from '@/lib/services'
 
 interface HotelListProps {
   searchParams?: {
@@ -131,10 +120,11 @@ export default function HotelList({ searchParams }: HotelListProps) {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {hotels.map((hotel) => {
-        const currentIndex = currentImageIndex[hotel._id] || 0
+        const hotelId = hotel._id || hotel.id || Math.random().toString()
+        const currentIndex = currentImageIndex[hotelId] || 0
         const displayImages = hotel.images.length > 0 ? hotel.images : ['https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop']
         return (
-        <div key={hotel._id} className="card-elevated group cursor-pointer overflow-hidden">
+        <div key={hotelId} className="card-elevated group cursor-pointer overflow-hidden">
           {/* Image carousel */}
           <div className="relative h-56 -mx-6 -mt-6 mb-6 overflow-hidden bg-dark-200">
             <img 
@@ -148,7 +138,7 @@ export default function HotelList({ searchParams }: HotelListProps) {
             {displayImages.length > 1 && (
               <>
                 <button
-                  onClick={(e) => { e.stopPropagation(); prevImage(hotel._id, displayImages.length); }}
+                  onClick={(e) => { e.stopPropagation(); prevImage(hotelId, displayImages.length); }}
                   className="absolute left-2 top-1/2 -translate-y-1/2 bg-dark-purple/80 hover:bg-dark-purple text-white p-2 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,7 +146,7 @@ export default function HotelList({ searchParams }: HotelListProps) {
                   </svg>
                 </button>
                 <button
-                  onClick={(e) => { e.stopPropagation(); nextImage(hotel._id, displayImages.length); }}
+                  onClick={(e) => { e.stopPropagation(); nextImage(hotelId, displayImages.length); }}
                   className="absolute right-2 top-1/2 -translate-y-1/2 bg-dark-purple/80 hover:bg-dark-purple text-white p-2 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,7 +159,7 @@ export default function HotelList({ searchParams }: HotelListProps) {
                   {displayImages.map((_, idx) => (
                     <button
                       key={idx}
-                      onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(prev => ({ ...prev, [hotel._id]: idx })); }}
+                      onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(prev => ({ ...prev, [hotelId]: idx })); }}
                       className={`w-2 h-2 rounded-full transition-all ${
                         idx === currentIndex ? 'bg-neon-lime w-6' : 'bg-white/50 hover:bg-white/70'
                       }`}
@@ -223,7 +213,7 @@ export default function HotelList({ searchParams }: HotelListProps) {
             
             <button 
               onClick={() => handleBookNow({
-                id: hotel._id,
+                id: hotelId,
                 name: hotel.name,
                 location: hotel.location,
                 pricePerNight: 0 // Will be determined by selected room

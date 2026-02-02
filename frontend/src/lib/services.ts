@@ -1,12 +1,24 @@
 import api from './api'
 
 export interface Hotel {
-  id: string
+  _id?: string
+  id?: string
   name: string
   location: string
-  description: string
+  description?: string
   rating: number
   amenities: string[]
+  imageUrl?: string
+  images: string[]
+  contactInfo?: {
+    email: string
+    phone: string
+    address: string
+  }
+  ownerId?: string
+  isActive: boolean
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 export interface Room {
@@ -27,11 +39,17 @@ export interface Booking {
   userId: string
   hotelId: string
   roomId: string
+  guestName: string
+  guestEmail: string
+  guestPhone?: string
   checkIn: Date
   checkOut: Date
   guests: number
   status: 'pending' | 'confirmed' | 'cancelled' | 'completed'
   totalAmount: number
+  paidAmount?: number
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 // Hotel APIs

@@ -2,17 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { bookingService, roomService } from '@/lib/services'
+import { bookingService, roomService, Room } from '@/lib/services'
 import { useAuthStore } from '@/lib/auth-store'
-
-interface Room {
-  _id: string
-  roomNumber: string
-  type: string
-  price: number
-  capacity: number
-  status: string
-}
 
 interface BookingModalProps {
   isOpen: boolean
@@ -139,8 +130,8 @@ export default function BookingModal({ isOpen, onClose, hotel }: BookingModalPro
         guestName: formData.guestName,
         guestEmail: formData.guestEmail,
         guestPhone: formData.guestPhone || undefined,
-        checkIn: formData.checkIn, // Keep as ISO string
-        checkOut: formData.checkOut, // Keep as ISO string
+        checkIn: new Date(formData.checkIn),
+        checkOut: new Date(formData.checkOut),
         guests: Number(formData.guests),
         specialRequests: formData.specialRequests || undefined,
       }
