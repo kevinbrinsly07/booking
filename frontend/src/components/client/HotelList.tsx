@@ -15,7 +15,16 @@ interface Hotel {
   isActive: boolean
 }
 
-export default function HotelList() {
+interface HotelListProps {
+  searchParams?: {
+    location?: string
+    checkIn?: string
+    checkOut?: string
+    guests?: number
+  }
+}
+
+export default function HotelList({ searchParams }: HotelListProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({})
   const [selectedHotel, setSelectedHotel] = useState<{
     id: string
@@ -30,13 +39,25 @@ export default function HotelList() {
 
   useEffect(() => {
     fetchHotels()
-  }, [])
+  }, [searchParams])
 
   const fetchHotels = async () => {
     try {
       setLoading(true)
       setError(null)
-      const response = await hotelService.getAll()
+      
+      let response
+      if (searchParams?.location) {
+        // Use search endpoint if location is provided
+        response = await hotelService.search({
+          q: searchParams.location,
+          location: searchParams.location
+        })
+      } else {
+        // Get all hotels if no search params
+        response = await hotelService.getAll()
+      }
+      
       setHotels(response.data)
     } catch (err) {
       console.error('Error fetching hotels:', err)

@@ -2,8 +2,19 @@
 
 import { useState } from 'react'
 
-export default function SearchForm() {
-  const [searchParams, setSearchParams] = useState({
+interface SearchParams {
+  location: string
+  checkIn: string
+  checkOut: string
+  guests: number
+}
+
+interface SearchFormProps {
+  onSearch: (params: SearchParams) => void
+}
+
+export default function SearchForm({ onSearch }: SearchFormProps) {
+  const [searchParams, setSearchParams] = useState<SearchParams>({
     location: '',
     checkIn: '',
     checkOut: '',
@@ -12,8 +23,7 @@ export default function SearchForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle search logic
-    console.log('Search params:', searchParams)
+    onSearch(searchParams)
   }
 
   const popularDestinations = [
@@ -79,7 +89,7 @@ export default function SearchForm() {
             type="number"
             min="1"
             value={searchParams.guests}
-            onChange={(e) => setSearchParams({ ...searchParams, guests: parseInt(e.target.value) })}
+            onChange={(e) => setSearchParams({ ...searchParams, guests: parseInt(e.target.value) || 1 })}
             className="input-field"
           />
         </div>
@@ -112,7 +122,11 @@ export default function SearchForm() {
           {popularDestinations.map((dest) => (
             <button
               key={dest.name}
-              onClick={() => setSearchParams({ ...searchParams, location: dest.name })}
+              onClick={() => {
+                const newParams = { ...searchParams, location: dest.name }
+                setSearchParams(newParams)
+                onSearch(newParams)
+              }}
               className="group relative h-32 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
             >
               <img 

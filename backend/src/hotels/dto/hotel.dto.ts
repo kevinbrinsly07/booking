@@ -1,4 +1,4 @@
-import { IsString, IsNumber, IsOptional, IsArray, Min, Max, IsBoolean } from 'class-validator';
+import { IsString, IsNumber, IsOptional, IsArray, Min, Max, IsBoolean, IsMongoId } from 'class-validator';
 
 export class CreateHotelDto {
   @IsString()
@@ -32,6 +32,10 @@ export class CreateHotelDto {
     phone: string;
     address: string;
   };
+
+  @IsMongoId()
+  @IsOptional()
+  ownerId?: string;
 }
 
 export class UpdateHotelDto {

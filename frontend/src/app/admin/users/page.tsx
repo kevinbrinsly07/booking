@@ -249,11 +249,11 @@ export default function UsersManagementPage() {
             </li>
             <li className="flex items-start">
               <span className="text-neon-lime mr-2">•</span>
-              <span><strong className="text-white">HOTEL_ADMIN</strong>: Can manage hotels, rooms, and bookings</span>
+              <span><strong className="text-white">HOTEL_ADMIN</strong>: Can manage their hotel's rooms and bookings</span>
             </li>
             <li className="flex items-start">
               <span className="text-neon-lime mr-2">•</span>
-              <span><strong className="text-white">SUPER_ADMIN</strong>: Full system access and user management</span>
+              <span><strong className="text-white">SUPER_ADMIN</strong>: Can manage hotels, users, and system settings (not bookings)</span>
             </li>
             <li className="flex items-start">
               <span className="text-neon-lime mr-2">•</span>

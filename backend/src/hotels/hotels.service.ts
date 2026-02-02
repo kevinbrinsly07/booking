@@ -20,6 +20,10 @@ export class HotelsService {
     return this.hotelModel.find(query).exec();
   }
 
+  async findByIds(hotelIds: string[]): Promise<Hotel[]> {
+    return this.hotelModel.find({ _id: { $in: hotelIds }, isActive: true }).exec();
+  }
+
   async findOne(id: string): Promise<Hotel> {
     const hotel = await this.hotelModel.findById(id).exec();
     if (!hotel) {

@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react'
 import { roomService } from '@/lib/services'
 import type { Room } from '@/lib/services'
+import { useAuthStore } from '@/lib/auth-store'
 
 export default function RoomManagement() {
+  const { user } = useAuthStore()
   const [showAddForm, setShowAddForm] = useState(false)
   const [editingRoom, setEditingRoom] = useState<Room | null>(null)
   const [rooms, setRooms] = useState<Room[]>([])
@@ -25,7 +27,10 @@ export default function RoomManagement() {
   const fetchRooms = async () => {
     try {
       setLoading(true)
+      console.log('Current user:', user)
+      console.log('User hotelIds:', user?.hotelIds)
       const response = await roomService.getAll()
+      console.log('Rooms received from API:', response.data)
       setRooms(response.data)
     } catch (error) {
       console.error('Error fetching rooms:', error)
@@ -36,6 +41,15 @@ export default function RoomManagement() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Get the hotel ID from the logged-in user
+    const hotelId = user?.hotelIds?.[0]
+    if (!hotelId) {
+      console.error('No hotel ID found for user')
+      alert('Unable to create room: No hotel associated with your account')
+      return
+    }
+    
     try {
       if (editingRoom) {
         const roomId = editingRoom._id || editingRoom.id
@@ -55,7 +69,7 @@ export default function RoomManagement() {
           capacity: parseInt(formData.capacity),
           amenities: formData.amenities.split(',').map(a => a.trim()),
           status: formData.status,
-          hotelId: '' // This should be set based on the logged-in hotel admin's hotel
+          hotelId: hotelId
         })
       }
       setFormData({
@@ -69,8 +83,10 @@ export default function RoomManagement() {
       setShowAddForm(false)
       setEditingRoom(null)
       fetchRooms()
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error saving room:', error)
+      const errorMessage = error.response?.data?.message || 'Failed to save room. Please try again.'
+      alert(errorMessage)
     }
   }
 
@@ -277,7 +293,7 @@ export default function RoomManagement() {
                   Edit
                 </button>
                 <button 
-                  onClick={() => handleDelete(roomId)}
+                  onClick={() => roomId && handleDelete(roomId)}
                   className="flex-1 px-4 py-2 bg-red-500/20 text-red-400 border border-red-500/30 rounded-lg font-semibold hover:bg-red-500/30 transition-all duration-200 text-sm"
                 >
                   Delete

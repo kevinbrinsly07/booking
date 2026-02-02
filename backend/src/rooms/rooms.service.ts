@@ -1,6 +1,6 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, ConflictException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { Room, RoomDocument, RoomStatus } from './schemas/room.schema';
 import { CreateRoomDto, UpdateRoomDto } from './dto/room.dto';
 
@@ -11,8 +11,18 @@ export class RoomsService {
   ) {}
 
   async create(createRoomDto: CreateRoomDto): Promise<Room> {
-    const createdRoom = new this.roomModel(createRoomDto);
-    return createdRoom.save();
+    try {
+      const createdRoom = new this.roomModel(createRoomDto);
+      return await createdRoom.save();
+    } catch (error: any) {
+      // Handle duplicate key error
+      if (error.code === 11000) {
+        throw new ConflictException(
+          `Room number ${createRoomDto.roomNumber} already exists for this hotel. Please use a different room number.`
+        );
+      }
+      throw error;
+    }
   }
 
   async findAll(hotelId?: string): Promise<Room[]> {
@@ -21,6 +31,15 @@ export class RoomsService {
       query.hotelId = hotelId;
     }
     return this.roomModel.find(query).populate('hotelId').exec();
+  }
+
+  async findByUserHotels(hotelIds: string[]): Promise<Room[]> {
+    // Convert string IDs to ObjectIds for proper MongoDB querying
+    const objectIds = hotelIds.map(id => new Types.ObjectId(id));
+    return this.roomModel
+      .find({ hotelId: { $in: objectIds }, isActive: true })
+      .populate('hotelId')
+      .exec();
   }
 
   async findOne(id: string): Promise<Room> {

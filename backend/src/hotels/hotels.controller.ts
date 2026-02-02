@@ -11,19 +11,35 @@ import {
 } from '@nestjs/common';
 import { HotelsService } from './hotels.service';
 import { CreateHotelDto, UpdateHotelDto } from './dto/hotel.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
+import { UserRole } from '../users/schemas/user.schema';
 
 @Controller('hotels')
 export class HotelsController {
   constructor(private readonly hotelsService: HotelsService) {}
 
   @Post()
-  create(@Body() createHotelDto: CreateHotelDto) {
+  @UseGuards(JwtAuthGuard)
+  create(@Body() createHotelDto: CreateHotelDto, @CurrentUser() user: any) {
     return this.hotelsService.create(createHotelDto);
   }
 
   @Get()
-  findAll(@Query('location') location?: string) {
+  async findAll(@Query('location') location?: string) {
+    // Public endpoint - returns all hotels
     return this.hotelsService.findAll(location ? { location } : {});
+  }
+
+  @Get('my-hotels')
+  @UseGuards(JwtAuthGuard)
+  async getMyHotels(@CurrentUser() user: any) {
+    // Hotel admins get only their hotels
+    if (user.role === UserRole.HOTEL_ADMIN || user.role === 'hotel_admin') {
+      return this.hotelsService.findByIds(user.hotelIds || []);
+    }
+    // Super admins get all hotels
+    return this.hotelsService.findAll({});
   }
 
   @Get('search')

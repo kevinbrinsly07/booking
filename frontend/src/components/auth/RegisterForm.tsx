@@ -14,6 +14,10 @@ interface RegisterFormData {
   confirmPassword: string;
   phone?: string;
   role?: string;
+  hotelName?: string;
+  hotelLocation?: string;
+  hotelDescription?: string;
+  hotelAddress?: string;
 }
 
 export default function RegisterForm() {
@@ -107,6 +111,71 @@ export default function RegisterForm() {
           placeholder="+1 (555) 000-0000"
         />
       </div>
+
+      {roleParam === 'hotel' && (
+        <>
+          <div className="pt-4 border-t border-white/10">
+            <h3 className="text-lg font-semibold text-white/90 mb-4">Hotel Information</h3>
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-white/90 mb-2">
+              Hotel Name
+            </label>
+            <input
+              {...register('hotelName', { 
+                required: roleParam === 'hotel' ? 'Hotel name is required' : false 
+              })}
+              type="text"
+              className="input-field"
+              placeholder="Grand Hotel"
+            />
+            {errors.hotelName && (
+              <p className="mt-2 text-sm text-neon-lime">{errors.hotelName.message}</p>
+            )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-white/90 mb-2">
+              Hotel Location
+            </label>
+            <input
+              {...register('hotelLocation', { 
+                required: roleParam === 'hotel' ? 'Hotel location is required' : false 
+              })}
+              type="text"
+              className="input-field"
+              placeholder="New York, USA"
+            />
+            {errors.hotelLocation && (
+              <p className="mt-2 text-sm text-neon-lime">{errors.hotelLocation.message}</p>
+            )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-white/90 mb-2">
+              Hotel Address <span className="text-white/50 font-normal">(Optional)</span>
+            </label>
+            <input
+              {...register('hotelAddress')}
+              type="text"
+              className="input-field"
+              placeholder="123 Main Street, New York, NY 10001"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-white/90 mb-2">
+              Hotel Description <span className="text-white/50 font-normal">(Optional)</span>
+            </label>
+            <textarea
+              {...register('hotelDescription')}
+              className="input-field min-h-[100px]"
+              placeholder="Describe your hotel..."
+            />
+          </div>
+        </>
+      )}
 
       <div>
         <label className="block text-sm font-semibold text-white/90 mb-2">

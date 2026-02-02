@@ -15,12 +15,15 @@ export default function HotelPortal() {
   useEffect(() => {
     if (!user) {
       router.push('/login?returnTo=hotel')
-    } else if (user.role !== 'hotel_admin' && user.role !== 'super_admin') {
+    } else if (user.role === 'super_admin') {
+      // Redirect super admins to admin dashboard - they don't manage bookings
+      router.push('/admin')
+    } else if (user.role !== 'hotel_admin') {
       router.push('/client')
     }
   }, [user, router])
 
-  if (!user || (user.role !== 'hotel_admin' && user.role !== 'super_admin')) {
+  if (!user || user.role !== 'hotel_admin') {
     return null
   }
 
@@ -71,14 +74,6 @@ export default function HotelPortal() {
               >
                 Bookings
               </button>
-              {user.role === 'super_admin' && (
-                <button
-                  onClick={() => router.push('/admin/users')}
-                  className="px-5 py-2 rounded-lg font-semibold text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
-                >
-                  Users
-                </button>
-              )}
               <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-white/10">
                 <button
                   onClick={() => router.push('/profile')}

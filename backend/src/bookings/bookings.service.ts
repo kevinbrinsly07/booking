@@ -5,7 +5,7 @@ import {
   ConflictException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { v4 as uuidv4 } from 'uuid';
 import { Booking, BookingDocument, BookingStatus } from './schemas/booking.schema';
 import { CreateBookingDto, UpdateBookingDto, CancelBookingDto } from './dto/booking.dto';
@@ -170,6 +170,17 @@ export class BookingsService {
 
   async findByHotel(hotelId: string): Promise<Booking[]> {
     return this.findAll({ hotelId });
+  }
+
+  async findByUserHotels(hotelIds: string[]): Promise<Booking[]> {
+    // Convert string IDs to ObjectIds for proper MongoDB querying
+    const objectIds = hotelIds.map(id => new Types.ObjectId(id));
+    return this.bookingModel
+      .find({ hotelId: { $in: objectIds } })
+      .populate('hotelId')
+      .populate('roomId')
+      .sort({ createdAt: -1 })
+      .exec();
   }
 
   async update(

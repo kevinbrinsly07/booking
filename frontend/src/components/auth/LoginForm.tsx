@@ -30,7 +30,9 @@ export default function LoginForm() {
       toast.success('Login successful!');
       
       // Redirect based on role
-      if (user.role === 'hotel_admin' || user.role === 'super_admin') {
+      if (user.role === 'super_admin') {
+        router.push('/admin');
+      } else if (user.role === 'hotel_admin') {
         router.push('/hotel');
       } else {
         router.push('/client');
