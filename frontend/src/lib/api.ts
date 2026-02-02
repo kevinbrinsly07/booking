@@ -1,8 +1,11 @@
 import axios from 'axios'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' 
-  ? '/api' // Will fail fast in production if env var not set
-  : 'http://localhost:3001/api')
+// Log to debug in production
+if (typeof window !== 'undefined') {
+  console.log('API URL:', process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api');
+}
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api'
 
 export const api = axios.create({
   baseURL: API_URL,
