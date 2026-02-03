@@ -68,110 +68,112 @@ export default function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-      <div>
-        <div>
-          <label className="block text-sm font-semibold text-white/90 mb-2">
-            Full Name
-          </label>
-          <input
-            {...register("name", { required: "Name is required" })}
-            type="text"
-            className="input-field"
-            placeholder="John Doe"
-          />
-          {errors.name && (
-            <p className="mt-2 text-sm text-neon-lime">{errors.name.message}</p>
-          )}
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      {/* Basic Information */}
+      <div className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-semibold text-white/90 mb-1">
+              Full Name
+            </label>
+            <input
+              {...register("name", { required: "Name is required" })}
+              type="text"
+              className="input-field"
+              placeholder="John Doe"
+            />
+            {errors.name && (
+              <p className="mt-1 text-sm text-neon-lime">{errors.name.message}</p>
+            )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-white/90 mb-1">
+              Email Address
+            </label>
+            <input
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email address",
+                },
+              })}
+              type="email"
+              className="input-field"
+              placeholder="you@example.com"
+            />
+            {errors.email && (
+              <p className="mt-1 text-sm text-neon-lime">
+                {errors.email.message}
+              </p>
+            )}
+          </div>
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-white/90 mb-2">
-            Email Address
+          <label className="block text-sm font-semibold text-white/90 mb-1">
+            Phone Number{" "}
+            <span className="text-white/50 font-normal">(Optional)</span>
           </label>
           <input
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Invalid email address",
-              },
-            })}
-            type="email"
+            {...register("phone")}
+            type="tel"
             className="input-field"
-            placeholder="you@example.com"
+            placeholder="+1 (555) 000-0000"
           />
-          {errors.email && (
-            <p className="mt-2 text-sm text-neon-lime">
-              {errors.email.message}
-            </p>
-          )}
         </div>
       </div>
 
-      <div>
-        <label className="block text-sm font-semibold text-white/90 mb-2">
-          Phone Number{" "}
-          <span className="text-white/50 font-normal">(Optional)</span>
-        </label>
-        <input
-          {...register("phone")}
-          type="tel"
-          className="input-field"
-          placeholder="+1 (555) 000-0000"
-        />
-      </div>
-
+      {/* Hotel Information - Only show for hotel registration */}
       {roleParam === "hotel" && (
-        <>
-          <div className="pt-4 border-t border-white/10">
-            <h3 className="text-lg font-semibold text-white/90 mb-4">
-              Hotel Information
-            </h3>
+        <div className="space-y-4 pt-3 border-t border-white/10">
+          <h3 className="text-lg font-semibold text-white/90">Hotel Information</h3>
+          
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-semibold text-white/90 mb-1">
+                Hotel Name
+              </label>
+              <input
+                {...register("hotelName", {
+                  required:
+                    roleParam === "hotel" ? "Hotel name is required" : false,
+                })}
+                type="text"
+                className="input-field"
+                placeholder="Grand Hotel"
+              />
+              {errors.hotelName && (
+                <p className="mt-1 text-sm text-neon-lime">
+                  {errors.hotelName.message}
+                </p>
+              )}
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-white/90 mb-1">
+                Hotel Location
+              </label>
+              <input
+                {...register("hotelLocation", {
+                  required:
+                    roleParam === "hotel" ? "Hotel location is required" : false,
+                })}
+                type="text"
+                className="input-field"
+                placeholder="New York, USA"
+              />
+              {errors.hotelLocation && (
+                <p className="mt-1 text-sm text-neon-lime">
+                  {errors.hotelLocation.message}
+                </p>
+              )}
+            </div>
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-white/90 mb-2">
-              Hotel Name
-            </label>
-            <input
-              {...register("hotelName", {
-                required:
-                  roleParam === "hotel" ? "Hotel name is required" : false,
-              })}
-              type="text"
-              className="input-field"
-              placeholder="Grand Hotel"
-            />
-            {errors.hotelName && (
-              <p className="mt-2 text-sm text-neon-lime">
-                {errors.hotelName.message}
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label className="block text-sm font-semibold text-white/90 mb-2">
-              Hotel Location
-            </label>
-            <input
-              {...register("hotelLocation", {
-                required:
-                  roleParam === "hotel" ? "Hotel location is required" : false,
-              })}
-              type="text"
-              className="input-field"
-              placeholder="New York, USA"
-            />
-            {errors.hotelLocation && (
-              <p className="mt-2 text-sm text-neon-lime">
-                {errors.hotelLocation.message}
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label className="block text-sm font-semibold text-white/90 mb-2">
+            <label className="block text-sm font-semibold text-white/90 mb-1">
               Hotel Address{" "}
               <span className="text-white/50 font-normal">(Optional)</span>
             </label>
@@ -184,66 +186,71 @@ export default function RegisterForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-white/90 mb-2">
+            <label className="block text-sm font-semibold text-white/90 mb-1">
               Hotel Description{" "}
               <span className="text-white/50 font-normal">(Optional)</span>
             </label>
             <textarea
               {...register("hotelDescription")}
-              className="input-field min-h-[100px]"
+              className="input-field min-h-[80px]"
               placeholder="Describe your hotel..."
             />
           </div>
-        </>
+        </div>
       )}
 
-      <div>
-        <label className="block text-sm font-semibold text-white/90 mb-2">
-          Password
-        </label>
-        <input
-          {...register("password", {
-            required: "Password is required",
-            minLength: {
-              value: 6,
-              message: "Password must be at least 6 characters",
-            },
-          })}
-          type="password"
-          className="input-field"
-          placeholder="••••••••"
-        />
-        {errors.password && (
-          <p className="mt-2 text-sm text-neon-lime">
-            {errors.password.message}
-          </p>
-        )}
-      </div>
+      {/* Password Fields */}
+      <div className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-semibold text-white/90 mb-1">
+              Password
+            </label>
+            <input
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters",
+                },
+              })}
+              type="password"
+              className="input-field"
+              placeholder="••••••••"
+            />
+            {errors.password && (
+              <p className="mt-1 text-sm text-neon-lime">
+                {errors.password.message}
+              </p>
+            )}
+          </div>
 
-      <div>
-        <label className="block text-sm font-semibold text-white/90 mb-2">
-          Confirm Password
-        </label>
-        <input
-          {...register("confirmPassword", {
-            required: "Please confirm your password",
-            validate: (value) => value === password || "Passwords do not match",
-          })}
-          type="password"
-          className="input-field"
-          placeholder="••••••••"
-        />
-        {errors.confirmPassword && (
-          <p className="mt-2 text-sm text-neon-lime">
-            {errors.confirmPassword.message}
-          </p>
-        )}
+          <div>
+            <label className="block text-sm font-semibold text-white/90 mb-1">
+              Confirm Password
+            </label>
+            <input
+              {...register("confirmPassword", {
+                required: "Please confirm your password",
+                validate: (value) => value === password || "Passwords do not match",
+              })}
+              type="password"
+              className="input-field"
+              placeholder="••••••••"
+            />
+            {errors.confirmPassword && (
+              <p className="mt-1 text-sm text-neon-lime">
+                {errors.confirmPassword.message}
+              </p>
+            )}
+          </div>
+        </div>
       </div>
 
       <button
         type="submit"
         disabled={isLoading}
-        className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+        className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed mt-6"
       >
         {isLoading ? (
           <span className="flex items-center justify-center">

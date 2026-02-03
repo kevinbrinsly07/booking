@@ -45,9 +45,9 @@ export default function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div>
-        <label className="block text-sm font-semibold text-white/90 mb-2">
+        <label className="block text-sm font-semibold text-white/90 mb-1">
           Email Address
         </label>
         <input
@@ -63,12 +63,12 @@ export default function LoginForm() {
           placeholder="you@example.com"
         />
         {errors.email && (
-          <p className="mt-2 text-sm text-neon-lime">{errors.email.message}</p>
+          <p className="mt-1 text-sm text-neon-lime">{errors.email.message}</p>
         )}
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-white/90 mb-2">
+        <label className="block text-sm font-semibold text-white/90 mb-1">
           Password
         </label>
         <input
@@ -84,14 +84,14 @@ export default function LoginForm() {
           placeholder="••••••••"
         />
         {errors.password && (
-          <p className="mt-2 text-sm text-neon-lime">{errors.password.message}</p>
+          <p className="mt-1 text-sm text-neon-lime">{errors.password.message}</p>
         )}
       </div>
 
       <button
         type="submit"
         disabled={isLoading}
-        className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+        className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed mt-6"
       >
         {isLoading ? (
           <span className="flex items-center justify-center">
@@ -104,7 +104,7 @@ export default function LoginForm() {
         ) : 'Sign In'}
       </button>
 
-      <div className="mt-6 text-center">
+      <div className="mt-4 text-center">
         <p className="text-white/60 text-sm">
           Forgot your password?{' '}
           <a href="#" className="text-neon-lime hover:underline font-semibold">

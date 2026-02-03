@@ -125,3 +125,116 @@
  ✓ Compiled in 108ms (757 modules)
  ✓ Compiled /_not-found in 419ms (746 modules)
  GET /.well-known/appspecific/com.chrome.devtools.json 404 in 642ms
+ ○ Compiling /register ...
+ ✓ Compiled /register in 604ms (752 modules)
+ ✓ Compiled in 526ms (766 modules)
+ GET /register?role=hotel 200 in 103ms
+ ✓ Compiled in 331ms (766 modules)
+ ✓ Compiled /login in 212ms (420 modules)
+ ✓ Compiled in 348ms (771 modules)
+ ✓ Compiled in 385ms (771 modules)
+ ⨯ ./src/app/login/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+    ,-[[36;1;4m/Users/kevinbrinsly/booking/frontend/src/app/login/page.tsx[0m:23:1]
+ [2m23[0m |   }, [user, isLoading, router]);
+ [2m24[0m | 
+ [2m25[0m |   return (
+ [2m26[0m |     <div className="min-h-screen flex items-center justify-center bg-dark-purple px-4 py-8 sm:py-12">
+    : [31;1m     ^^^[0m
+ [2m27[0m |       {/* Decorative background elements */}
+ [2m28[0m |       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+ [2m29[0m |         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-lime/5 rounded-full blur-3xl" />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/login/page.tsx
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1515ms (997 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /register?role=client 200 in 98ms
+ GET /register?role=client 200 in 16ms
+ ✓ Compiled in 439ms (997 modules)
+ GET /register?role=client 200 in 98ms
+ ✓ Compiled in 442ms (997 modules)
+ ✓ Compiled in 356ms (995 modules)
+ GET /login 200 in 54ms
+ ✓ Compiled in 519ms (995 modules)
+ ✓ Compiled /client in 436ms (995 modules)
+ ⨯ ./src/app/login/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+    ,-[[36;1;4m/Users/kevinbrinsly/booking/frontend/src/app/login/page.tsx[0m:23:1]
+ [2m23[0m |   }, [user, isLoading, router]);
+ [2m24[0m | 
+ [2m25[0m |   return (
+ [2m26[0m |     <div className="min-h-screen flex items-center justify-center bg-dark-purple px-4 py-8 sm:py-12">
+    : [31;1m     ^^^[0m
+ [2m27[0m |       {/* Decorative background elements */}
+ [2m28[0m |       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+ [2m29[0m |         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-lime/5 rounded-full blur-3xl" />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/login/page.tsx
+ ⨯ ./src/app/login/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+    ,-[[36;1;4m/Users/kevinbrinsly/booking/frontend/src/app/login/page.tsx[0m:23:1]
+ [2m23[0m |   }, [user, isLoading, router]);
+ [2m24[0m | 
+ [2m25[0m |   return (
+ [2m26[0m |     <div className="min-h-screen flex items-center justify-center bg-dark-purple px-4 py-8 sm:py-12">
+    : [31;1m     ^^^[0m
+ [2m27[0m |       {/* Decorative background elements */}
+ [2m28[0m |       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+ [2m29[0m |         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-lime/5 rounded-full blur-3xl" />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/login/page.tsx
+ GET / 500 in 23ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_not-found in 724ms (1014 modules)
+ ✓ Compiled (1000 modules)
+ GET / 200 in 119ms
+ GET /_next/static/webpack/a77a01c2700703f3.webpack.hot-update.json 404 in 857ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 256ms (1014 modules)
+ ⨯ ./src/app/register/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+    ,-[[36;1;4m/Users/kevinbrinsly/booking/frontend/src/app/register/page.tsx[0m:25:1]
+ [2m25[0m |   const isHotelRole = roleParam === 'hotel';
+ [2m26[0m | 
+ [2m27[0m |   return (
+ [2m28[0m |     <div className="min-h-screen flex items-center justify-center bg-dark-purple px-4 py-8 sm:py-12">
+    : [31;1m     ^^^[0m
+ [2m29[0m |       {/* Decorative background elements */}
+ [2m30[0m |       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+ [2m31[0m |         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-neon-lime/5 rounded-full blur-3xl" />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/register/page.tsx
+ GET / 500 in 8ms
+ ✓ Compiled in 425ms (1000 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 54ms
+ GET /_next/static/webpack/a77a01c2700703f3.webpack.hot-update.json 404 in 471ms
+ GET / 200 in 14ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 48ms
+ GET /login?returnTo=hotel 200 in 45ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 27ms
