@@ -238,3 +238,120 @@ Import trace for requested module:
  GET /.well-known/appspecific/com.chrome.devtools.json 404 in 48ms
  GET /login?returnTo=hotel 200 in 45ms
  GET /.well-known/appspecific/com.chrome.devtools.json 404 in 27ms
+ ✓ Compiled in 1165ms (1001 modules)
+ ✓ Compiled in 580ms (1003 modules)
+ ✓ Compiled in 695ms (1003 modules)
+ ✓ Compiled in 738ms (1003 modules)
+ ✓ Compiled in 545ms (1003 modules)
+ ✓ Compiled in 528ms (1003 modules)
+ ✓ Compiled in 541ms (1003 modules)
+ ✓ Compiled in 720ms (1003 modules)
+ ✓ Compiled in 619ms (1003 modules)
+ ✓ Compiled in 280ms (1003 modules)
+ ✓ Compiled in 331ms (1003 modules)
+ ✓ Compiled in 244ms (1003 modules)
+ ✓ Compiled in 210ms (1003 modules)
+ ✓ Compiled in 304ms (1003 modules)
+ ✓ Compiled in 164ms (1003 modules)
+ GET / 200 in 98ms
+ ✓ Compiled in 376ms (1003 modules)
+ ✓ Compiled in 251ms (1003 modules)
+ ✓ Compiled in 465ms (1003 modules)
+ ✓ Compiled in 282ms (1003 modules)
+ ✓ Compiled in 284ms (1003 modules)
+ ✓ Compiled in 371ms (1003 modules)
+ ✓ Compiled in 363ms (1003 modules)
+ ✓ Compiled in 601ms (1003 modules)
+ ✓ Compiled in 779ms (1003 modules)
+ ✓ Compiled in 439ms (1003 modules)
+ ✓ Compiled in 808ms (1003 modules)
+ ✓ Compiled in 471ms (1003 modules)
+ ✓ Compiled in 252ms (1003 modules)
+ GET / 200 in 101ms
+ ✓ Compiled in 444ms (1003 modules)
+ ✓ Compiled in 252ms (1003 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 779ms (992 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 1067ms
+ GET / 200 in 84ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 27ms
+ ✓ Compiled in 448ms (1003 modules)
+ ✓ Compiled in 307ms (1003 modules)
+ GET / 200 in 47ms
+ ✓ Compiled in 1194ms (1003 modules)
+ ✓ Compiled in 611ms (1003 modules)
+ ✓ Compiled in 935ms (1003 modules)
+ ✓ Compiled in 649ms (1003 modules)
+ GET / 200 in 96ms
+ ✓ Compiled in 680ms (1003 modules)
+ GET / 200 in 56ms
+ GET / 200 in 17ms
+ ✓ Compiled in 608ms (1003 modules)
+ ✓ Compiled in 567ms (1003 modules)
+ ✓ Compiled in 631ms (1003 modules)
+ GET / 200 in 37ms
+ ✓ Compiled in 602ms (1003 modules)
+ GET / 200 in 30ms
+ GET / 200 in 10ms
+ GET / 200 in 33ms
+ ✓ Compiled in 759ms (1003 modules)
+ ✓ Compiled in 860ms (1003 modules)
+ GET / 200 in 42ms
+ GET / 200 in 18ms
+ ✓ Compiled in 385ms (1003 modules)
+ GET / 200 in 38ms
+ GET / 200 in 18ms
+ GET / 200 in 14ms
+ GET / 200 in 546ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 1652ms (1003 modules)
+ GET / 200 in 129ms
+ ✓ Compiled in 239ms (1003 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 69ms
+ ✓ Compiled in 625ms (1003 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 404ms
+ GET / 200 in 30ms
+ GET / 200 in 14ms
+ ✓ Compiled in 516ms (1003 modules)
+ ✓ Compiled in 1271ms (1003 modules)
+ ✓ Compiled /admin in 403ms (995 modules)
+ ✓ Compiled in 382ms (1009 modules)
+ ✓ Compiled in 499ms (1009 modules)
+ GET / 200 in 85ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.7s (1008 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 3159ms
+ ✓ Compiled in 26.9s (1008 modules)
+ ✓ Compiled in 2.4s (1005 modules)
+ ✓ Compiled in 4.8s (1005 modules)
+ GET / 200 in 937ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 876ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.8s (994 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 2988ms
+ GET / 200 in 222ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 145ms
+ ✓ Compiled in 730ms (1008 modules)
+ ✓ Compiled in 340ms (1008 modules)
+ ✓ Compiled in 486ms (1008 modules)
+ ✓ Compiled in 301ms (1008 modules)
+ GET / 200 in 41ms
+ GET / 200 in 18ms
+ GET / 200 in 15ms
+ GET / 200 in 15ms
+ ○ Compiling /client ...
+ ✓ Compiled /client in 551ms (468 modules)
+ ✓ Compiled /_not-found in 483ms (1002 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 634ms
+ ✓ Compiled in 4.3s (1008 modules)
+ GET / 200 in 119ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 48ms
+ ✓ Compiled in 10.7s (1008 modules)
+ GET / 200 in 1594ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 307ms
+ ✓ Compiled in 477ms (1008 modules)
+ ✓ Compiled in 158ms (1008 modules)
+ ✓ Compiled in 365ms (1005 modules)

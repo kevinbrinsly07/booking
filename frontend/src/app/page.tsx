@@ -10,6 +10,7 @@ import img2 from '../assets/img2.webp';
 import img3 from '../assets/img3.webp';
 import img4 from '../assets/img4.webp';
 import img5 from '../assets/img5.webp';
+import bgImage from '../assets/bg.webp';
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -20,6 +21,12 @@ if (typeof window !== 'undefined') {
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
+  const navRef = useRef<HTMLElement>(null)
+  const heroContentRef = useRef<HTMLDivElement>(null)
+  const whyChooseRef = useRef<HTMLDivElement>(null)
+  const portalCardsRef = useRef<HTMLDivElement>(null)
+  const statsRef = useRef<HTMLDivElement>(null)
+  const footerRef = useRef<HTMLElement>(null)
 
   const heroImages = [
     {
@@ -65,23 +72,195 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !carouselRef.current) return
+    if (typeof window === 'undefined') return
 
-    // Create parallax effect for the image container
-    const imageContainer = carouselRef.current.querySelector('.parallax-container')
-    
-    if (imageContainer) {
-      gsap.fromTo(imageContainer, 
-        { y: 0 }, // Start position
+    // Navigation slide down animation
+    if (navRef.current) {
+      gsap.fromTo(navRef.current, 
+        { y: -100, opacity: 0 },
         {
-          y: -150, // Reduced movement for better coverage
-          ease: 'none',
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power2.out'
+        }
+      )
+    }
+
+    // Hero content fade in animation
+    if (heroContentRef.current) {
+      gsap.fromTo(heroContentRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          delay: 0.3,
+          ease: 'power2.out'
+        }
+      )
+    }
+
+    // Parallax effect for carousel
+    if (carouselRef.current) {
+      const imageContainer = carouselRef.current.querySelector('.parallax-container')
+      if (imageContainer) {
+        gsap.fromTo(imageContainer, 
+          { y: 0 },
+          {
+            y: -150,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: carouselRef.current,
+              start: 'top 80%',
+              end: 'bottom 20%',
+              scrub: 1.5,
+              invalidateOnRefresh: true
+            }
+          }
+        )
+      }
+    }
+
+    // Why Choose Us section slide up animation
+    if (whyChooseRef.current) {
+      gsap.fromTo(whyChooseRef.current.children,
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.2,
+          ease: 'power2.out',
           scrollTrigger: {
-            trigger: carouselRef.current,
-            start: 'top 80%', // Start when carousel is 80% from top of viewport
-            end: 'bottom 20%', // End when carousel bottom is 20% from top of viewport
-            scrub: 1.5, // Smooth scrubbing with slight delay for more natural feel
-            invalidateOnRefresh: true
+            trigger: whyChooseRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      )
+    }
+
+    // Portal cards staggered animation
+    if (portalCardsRef.current) {
+      const cards = portalCardsRef.current.querySelectorAll('.card-elevated')
+      gsap.fromTo(cards,
+        { opacity: 0, y: 50, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'back.out(1.7)',
+          scrollTrigger: {
+            trigger: portalCardsRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      )
+    }
+
+    // Stats counter animation
+    if (statsRef.current) {
+      const statElements = statsRef.current.querySelectorAll('.stat-number')
+
+      // Define target values for each stat
+      const statValues = [
+        { target: 10000, suffix: 'K+' },
+        { target: 500000, suffix: 'K+' },
+        { target: 1000000, suffix: 'M+' },
+        { target: 99.9, suffix: '%' }
+      ]
+
+      statElements.forEach((stat, index) => {
+        const { target } = statValues[index]
+        const isPercentage = index === 3
+
+        // Use GSAP timeline for better control
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: statsRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        })
+
+        // Create a counter object to animate
+        const counter = { value: 0 }
+
+        tl.fromTo(counter,
+          { value: 0 },
+          {
+            value: target,
+            duration: 2,
+            ease: 'power2.out',
+            snap: isPercentage ? { value: 0.1 } : { value: 1 },
+            onUpdate: () => {
+              const current = counter.value
+
+              if (isPercentage) {
+                stat.textContent = current.toFixed(1) + '%'
+              } else {
+                if (current >= 1000000) {
+                  stat.textContent = Math.round(current / 1000000) + 'M+'
+                } else if (current >= 1000) {
+                  stat.textContent = Math.round(current / 1000) + 'K+'
+                } else {
+                  stat.textContent = Math.round(current).toString()
+                }
+              }
+            },
+            onComplete: () => {
+              // Ensure final formatted value is preserved
+              if (isPercentage) {
+                stat.textContent = '99.9%'
+              } else if (index === 0) {
+                stat.textContent = '10K+'
+              } else if (index === 1) {
+                stat.textContent = '500K+'
+              } else if (index === 2) {
+                stat.textContent = '1M+'
+              }
+            }
+          }
+        )
+      })
+
+      // Stats labels fade in
+      const statLabels = statsRef.current.querySelectorAll('p')
+      gsap.fromTo(statLabels,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 0.5,
+          stagger: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: statsRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      )
+    }
+
+    // Footer fade in animation
+    if (footerRef.current) {
+      gsap.fromTo(footerRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: 'top 90%',
+            toggleActions: 'play none none reverse'
           }
         }
       )
@@ -94,9 +273,17 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="min-h-screen relative overflow-hidden">
+    <main className="min-h-screen relative overflow-hidden" style={{
+      backgroundImage: `url(${bgImage.src})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundAttachment: 'fixed'
+    }}>
+      {/* Dark overlay for the entire background */}
+      <div className="absolute inset-0 bg-black/40"></div>
       {/* Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-50">
+      <nav ref={navRef} className="absolute top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             <div className="flex items-center">
@@ -160,7 +347,7 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:mt-0 mt-[120px]">
+        <div ref={heroContentRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:mt-0 mt-[120px]">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 neon-glow">
             Welcome to
             <span className="block gradient-text mt-3 pb-3">Hotel Booking System</span>
@@ -195,8 +382,8 @@ export default function Home() {
       </div>
 
       {/* Why Choose Us Section */}
-      <div className="py-10 lg:py-40 relative">
-        <div className="absolute inset-0 opacity-50"></div>
+      <div ref={whyChooseRef} className="py-10 lg:py-40 relative">
+        <div className="absolute inset-0"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16 neon-glow">
             Why Choose Our Platform?
@@ -240,20 +427,14 @@ export default function Home() {
       </div>
 
       {/* Portal Selection Cards */}
-      <div className="py-10 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={portalCardsRef} className="py-10 lg:py-20 relative">
+        <div className="absolute inset-0"></div>
+        <div className="max-w-7xl mx-auto pb-20 px-4 sm:px-6 lg:px-8 relative">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="card-elevated group hover:scale-105 transition-all duration-300 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                <img 
-                  src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=200&h=200&fit=crop" 
-                  alt="Client interface"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="card-elevated group hover:scale-105 transition-all duration-300 relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-2xl p-8">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-blue-800/5"></div>
               <div className="flex items-center justify-center mb-6 relative z-10">
-                <div className="p-6 bg-neon-lime/10 rounded-2xl border border-neon-lime/30 group-hover:bg-neon-lime/20 transition-all">
+                <div className="p-6 bg-neon-lime/10 rounded-2xl border border-neon-lime/30 group-hover:bg-neon-lime/20 transition-all backdrop-blur-sm">
                   <svg className="w-16 h-16 text-neon-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
@@ -269,21 +450,14 @@ export default function Home() {
                 <Link href="/client" className="btn-primary text-center">
                   Explore Hotels
                 </Link>
-                <Link href="/register?role=client" className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-xl border border-white/10 hover:border-neon-lime/50 transition-all font-semibold text-center">
+                <Link href="/register?role=client" className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-xl border border-white/10 hover:border-neon-lime/50 transition-all font-semibold text-center backdrop-blur-sm">
                   Sign Up as Client
                 </Link>
               </div>
             </div>
 
-            <div className="card-elevated group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+            <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-2xl group hover:scale-105 transition-all duration-300 relative overflow-hidden p-8">
               <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-teal-500/10"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                <img 
-                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=200&fit=crop" 
-                  alt="Hotel management"
-                  className="w-full h-full object-cover"
-                />
-              </div>
               <div className="flex items-center justify-center mb-6 relative z-10">
                 <div className="p-6 bg-neon-lime/10 rounded-2xl border border-neon-lime/30 group-hover:bg-neon-lime/20 transition-all">
                   <svg className="w-16 h-16 text-neon-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -301,7 +475,7 @@ export default function Home() {
                 <Link href="/hotel" className="btn-primary text-center">
                   Go to Dashboard
                 </Link>
-                <Link href="/register?role=hotel" className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-xl border border-white/10 hover:border-neon-lime/50 transition-all font-semibold text-center">
+                <Link href="/register?role=hotel" className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-xl border border-white/10 hover:border-neon-lime/50 transition-all font-semibold text-center backdrop-blur-sm">
                   Sign Up as Hotel
                 </Link>
               </div>
@@ -311,8 +485,8 @@ export default function Home() {
       </div>
 
       {/* Modern Hotel Gallery Carousel */}
-      <div ref={carouselRef} className="relative h-[500px] overflow-hidden bg-transparent">
-        <div className="parallax-container h-[700px] absolute inset-0">
+      <div ref={carouselRef} className="relative h-[650px] overflow-hidden bg-transparent">
+        <div className="parallax-container absolute inset-0">
           {heroImages.map((image, index) => (
             <div
               key={index}
@@ -336,24 +510,24 @@ export default function Home() {
       </div>
 
       {/* Stats Section */}
-      <div className="py-10 lg:py-40 relative">
-        <div className="absolute inset-0 opacity-50"></div>
+      <div ref={statsRef} className="py-10 lg:py-40 relative">
+        <div className="absolute inset-0 "></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-neon-lime mb-2">10K+</div>
+              <div className="stat-number text-4xl md:text-5xl font-bold text-neon-lime mb-2">10K+</div>
               <p className="text-white/70">Hotels Worldwide</p>
             </div>
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-neon-lime mb-2">500K+</div>
+              <div className="stat-number text-4xl md:text-5xl font-bold text-neon-lime mb-2">500K+</div>
               <p className="text-white/70">Happy Customers</p>
             </div>
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-neon-lime mb-2">1M+</div>
+              <div className="stat-number text-4xl md:text-5xl font-bold text-neon-lime mb-2">1M+</div>
               <p className="text-white/70">Bookings Made</p>
             </div>
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-neon-lime mb-2">99.9%</div>
+              <div className="stat-number text-4xl md:text-5xl font-bold text-neon-lime mb-2">99.9%</div>
               <p className="text-white/70">Uptime Guarantee</p>
             </div>
           </div>
@@ -361,7 +535,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 mt-16 relative bg-black/20 backdrop-blur-sm">
+      <footer ref={footerRef} className="border-t border-white/10 mt-16 relative bg-black/20 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             {/* Company Info */}
@@ -411,11 +585,6 @@ export default function Home() {
                 <a href="#" className="text-white/70 hover:text-neon-lime transition-colors">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-white/70 hover:text-neon-lime transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
                   </svg>
                 </a>
                 <a href="#" className="text-white/70 hover:text-neon-lime transition-colors">
