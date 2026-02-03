@@ -427,8 +427,14 @@ export default function Home() {
       </div>
 
       {/* Portal Selection Cards */}
-      <div ref={portalCardsRef} className="py-10 lg:py-20 relative">
-        <div className="absolute inset-0"></div>
+      <div ref={portalCardsRef} className="py-10 lg:py-20 relative" style={{
+        backgroundImage: `url(${bgImage.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}>
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto pb-20 px-4 sm:px-6 lg:px-8 relative">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="card-elevated group hover:scale-105 transition-all duration-300 relative overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-2xl p-8">
@@ -510,8 +516,14 @@ export default function Home() {
       </div>
 
       {/* Stats Section */}
-      <div ref={statsRef} className="py-10 lg:py-40 relative">
-        <div className="absolute inset-0 "></div>
+      <div ref={statsRef} className="py-10 lg:py-40 relative" style={{
+        backgroundImage: `url(${bgImage.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}>
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div className="group">
