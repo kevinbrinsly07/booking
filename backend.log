@@ -5,22 +5,22 @@
 
  Info  Webpack is building your sources...
 
-webpack 5.97.1 compiled [1m[32msuccessfully[39m[22m in 552 ms
-(node:84303) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+webpack 5.97.1 compiled [1m[32msuccessfully[39m[22m in 416 ms
+(node:26382) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 Type-checking in progress...
-(node:84313) [MONGOOSE] Warning: Duplicate schema index on {"email":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(node:26390) [MONGOOSE] Warning: Duplicate schema index on {"email":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
 (Use `node --trace-warnings ...` to show where the warning was created)
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:01 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +8ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mRedisModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +24ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:24 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:24 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +16ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:24 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:24 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:24 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:24 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:24 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mRedisModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:24 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:24 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:24 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +8ms[39m
 [ioredis] Unhandled error event: AggregateError [ECONNREFUSED]: 
     at internalConnectMultiple (node:net:1139:18)
     at afterConnectMultiple (node:net:1714:7)
@@ -36,52 +36,52 @@ Type-checking in progress...
     at afterConnectMultiple (node:net:1714:7)
 ⚠️  Redis not available - running without caching
 No errors found.
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseCoreModule dependencies initialized[39m[38;5;3m +1381ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +9ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +2ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHotelsModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mRoomsModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBookingsModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +56ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users, POST} route[39m[38;5;3m +4ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, PATCH} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, DELETE} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:userId/hotels/:hotelId, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:userId/hotels/:hotelId, DELETE} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/profile, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +3ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHotelsController {/api/hotels}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/my-hotels, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/search, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/:id, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/:id, PATCH} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/:id, DELETE} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mRoomsController {/api/rooms}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/available, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/:id, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/:id, PATCH} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/:id, DELETE} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBookingsController {/api/bookings}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id, PATCH} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id/confirm, PATCH} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id/cancel, PATCH} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id/complete, PATCH} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/room/:roomId/availability, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 84313  - [39m02/02/2026, 1:52:02 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseCoreModule dependencies initialized[39m[38;5;3m +1291ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHotelsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mRoomsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBookingsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +20ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users, POST} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:userId/hotels/:hotelId, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/:userId/hotels/:hotelId, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHotelsController {/api/hotels}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/my-hotels, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/search, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/hotels/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mRoomsController {/api/rooms}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/available, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/rooms/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBookingsController {/api/bookings}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id/confirm, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id/cancel, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/:id/complete, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/bookings/room/:roomId/availability, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 26390  - [39m02/03/2026, 8:47:25 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1ms[39m
 Application is running on: http://localhost:3001/api

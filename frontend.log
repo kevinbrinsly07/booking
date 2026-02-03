@@ -7,10 +7,121 @@
   - Environments: .env.local
 
  ✓ Starting...
- ✓ Ready in 1892ms
+ ✓ Ready in 1875ms
  ○ Compiling / ...
- ✓ Compiled / in 3.3s (532 modules)
- ✓ Compiled in 206ms (270 modules)
- GET / 200 in 3569ms
- ✓ Compiled in 85ms (256 modules)
- ✓ Compiled in 256ms (523 modules)
+ ✓ Compiled / in 1424ms (523 modules)
+ GET / 200 in 1914ms
+ ✓ Compiled in 410ms (270 modules)
+ ✓ Compiled in 3.3s (523 modules)
+ ✓ Compiled in 633ms (523 modules)
+ ✓ Compiled in 178ms (523 modules)
+ ✓ Compiled in 141ms (523 modules)
+ ✓ Compiled in 160ms (523 modules)
+ ✓ Compiled in 375ms (523 modules)
+ ✓ Compiled in 186ms (523 modules)
+ ✓ Compiled in 277ms (523 modules)
+ ✓ Compiled in 386ms (523 modules)
+ ✓ Compiled in 138ms (523 modules)
+ ✓ Compiled in 134ms (523 modules)
+ ✓ Compiled in 159ms (523 modules)
+ ✓ Compiled in 228ms (523 modules)
+ ✓ Compiled in 301ms (523 modules)
+ ✓ Compiled in 157ms (523 modules)
+ ✓ Compiled in 514ms (523 modules)
+ ✓ Compiled /_not-found in 380ms (512 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 750ms
+ ✓ Compiled in 392ms (526 modules)
+ ✓ Compiled in 344ms (526 modules)
+ ✓ Compiled in 716ms (523 modules)
+ ✓ Compiled in 232ms (523 modules)
+ ✓ Compiled in 201ms (523 modules)
+ ✓ Compiled in 178ms (523 modules)
+ ✓ Compiled in 100ms (523 modules)
+ ✓ Compiled in 127ms (523 modules)
+ ✓ Compiled in 232ms (523 modules)
+ ✓ Compiled in 132ms (523 modules)
+ ✓ Compiled in 167ms (523 modules)
+ ✓ Compiled in 177ms (523 modules)
+ ○ Compiling /login ...
+ ✓ Compiled /login in 779ms (725 modules)
+ ✓ Compiled /hotel in 249ms (739 modules)
+ GET /hotel 200 in 76ms
+ GET / 200 in 20ms
+ GET / 200 in 15ms
+ ✓ Compiled in 755ms (753 modules)
+ ✓ Compiled in 204ms (747 modules)
+ ✓ Compiled in 530ms (747 modules)
+ ✓ Compiled in 237ms (747 modules)
+ GET / 200 in 55ms
+ GET / 200 in 13ms
+ GET / 200 in 15ms
+ ✓ Compiled in 292ms (747 modules)
+ ✓ Compiled in 693ms (747 modules)
+ ✓ Compiled in 297ms (747 modules)
+ ✓ Compiled in 317ms (747 modules)
+ ✓ Compiled in 151ms (747 modules)
+ ✓ Compiled in 539ms (747 modules)
+ ✓ Compiled in 365ms (747 modules)
+ ✓ Compiled in 302ms (747 modules)
+ ✓ Compiled in 593ms (737 modules)
+ ✓ Compiled in 201ms (737 modules)
+ ✓ Compiled in 264ms (737 modules)
+ GET / 200 in 68ms
+ GET / 200 in 15ms
+ GET / 200 in 13ms
+ GET / 200 in 13ms
+ ✓ Compiled in 401ms (747 modules)
+ ✓ Compiled in 255ms (747 modules)
+ ✓ Compiled in 181ms (747 modules)
+ ✓ Compiled in 233ms (747 modules)
+ ✓ Compiled in 412ms (747 modules)
+ ✓ Compiled in 197ms (747 modules)
+ ✓ Compiled in 602ms (747 modules)
+ ✓ Compiled in 262ms (747 modules)
+ ✓ Compiled in 207ms (747 modules)
+ ✓ Compiled in 653ms (757 modules)
+ ✓ Compiled in 343ms (757 modules)
+ ✓ Compiled in 591ms (757 modules)
+ ✓ Compiled in 296ms (757 modules)
+ GET / 200 in 67ms
+ GET / 200 in 16ms
+ ✓ Compiled in 595ms (757 modules)
+ GET / 200 in 234ms
+ ✓ Compiled in 385ms (757 modules)
+ ✓ Compiled in 495ms (757 modules)
+ GET / 200 in 51ms
+ GET / 200 in 14ms
+ GET / 200 in 16ms
+ ✓ Compiled in 411ms (757 modules)
+ ✓ Compiled in 304ms (757 modules)
+ GET / 200 in 28ms
+ ✓ Compiled in 404ms (757 modules)
+ ✓ Compiled in 191ms (757 modules)
+ GET / 200 in 29ms
+ ✓ Compiled in 299ms (757 modules)
+ GET / 200 in 41ms
+ ✓ Compiled in 273ms (757 modules)
+ ✓ Compiled in 238ms (757 modules)
+ ✓ Compiled in 215ms (757 modules)
+ GET / 200 in 39ms
+ ✓ Compiled in 275ms (757 modules)
+ ✓ Compiled in 172ms (757 modules)
+ ✓ Compiled in 133ms (757 modules)
+ ✓ Compiled in 129ms (757 modules)
+ ✓ Compiled in 134ms (757 modules)
+ ✓ Compiled in 105ms (757 modules)
+ ✓ Compiled in 115ms (757 modules)
+ ✓ Compiled in 220ms (757 modules)
+ ✓ Compiled in 117ms (757 modules)
+ ✓ Compiled in 326ms (757 modules)
+ ✓ Compiled in 195ms (757 modules)
+ ✓ Compiled in 279ms (757 modules)
+ ✓ Compiled in 179ms (757 modules)
+ ✓ Compiled in 334ms (757 modules)
+ ✓ Compiled in 400ms (757 modules)
+ ✓ Compiled in 337ms (757 modules)
+ ✓ Compiled in 185ms (757 modules)
+ ✓ Compiled in 134ms (757 modules)
+ ✓ Compiled in 108ms (757 modules)
+ ✓ Compiled /_not-found in 419ms (746 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 642ms
